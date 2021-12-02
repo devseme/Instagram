@@ -1,6 +1,18 @@
-*{
-    background-color: #4D436B;
-}
+
 h1{
-    color:#EEC390;
+    color:#4D436B;
+}
+#bi-instagram{
+    margin-left: 41vw;
+    margin-top: -17vh;
+    height:7vh;
+}
+#ig-text{
+    /* font-family: 'Comforter Brush', cursive; */
+font-family: 'Smooch', cursive;
+color:;
+font-size:1.5vw;
+}
+#search-form{
+    margin-left:6vw;
 }
