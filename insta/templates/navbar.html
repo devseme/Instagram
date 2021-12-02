@@ -1,46 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<nav class="navbar navbar-expand-lg navbar-light " style="background-color:#8134AF;">
+    <img src="https://img.icons8.com/fluency/48/000000/instagram-new.png" />
+    <a class="navbar-brand" href="#" id="ig-text">Instagram</a>
+    <a style="color:black;" href="/admin" id="ig-text" class="nav-item text-black" active-color="black"><i
+            class="fas fa-user-tie text-white"></i>&nbsp; &nbsp;Admin</a>&nbsp; &nbsp;
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light  fixed-top navi" style="background-color:#8134AF;">
-        
-      <a style ="color:black;" href="/admin"id="ig-text" class="nav-item text-black" active-color="black"><i class="fas fa-user-tie text-white"></i>&nbsp; &nbsp;Admin</a>
-      
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
-          <div class="navbar-nav text-white">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active text-black"id="ig-text" aria-current="page"  href="/">&nbsp; &nbsp; Home</a>
-               
-              </li>
-            </ul>
-          </div>
-      
-        </div>
-             <!-- Adding a search form  -->
-    <div class="col-sm-4 col-md-4 navbar-right">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
 
-        <form class="navbar-form" id="search-form" role="search"> 
-  
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search Users" name="article">
-            <div class="input-group-btn">
-              <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-            </div>
-          </div>
-  
+                <a class="nav-link active text-black" id="ig-text" aria-current="page" href="/"><i
+                        class="fa fa-home fa-fw text-white" aria-hidden="true"></i>&nbsp;Home</a>
+            </li>
+            <li class="nav-item">
+            </li>
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <i class="fa fa-search"></i>
         </form>
-      </div>
-      <!-- search form end -->
-        <i class="fa fa-camera-retro fa-2x"></i> 
-    </nav>
-</body>
-</html>
+    </div>
+
+</nav>

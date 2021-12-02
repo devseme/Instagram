@@ -7,8 +7,10 @@
 
   {% if title %}
   <title>my-Insta - {{title}}</title>
+  <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/48/000000/instagram-new--v1.png"/>">
   {% else %}
     <title> My-Insta </title>
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/48/000000/instagram-new--v1.png"/>
   {% endif %}
 
   {% block styles %}
@@ -27,7 +29,7 @@
 <body>
     {% include "navbar.html" %}
 
-    {% block content %} <h1 class='text-center head'>My-Insta</h1> {%endblock%}
+    {% block content %}  {%endblock%}
 
     {% block scripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
