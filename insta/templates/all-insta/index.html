@@ -1,11 +1,18 @@
 {%extends 'all-insta/base.html'%}
 {% block content %}
 {{block.super}}
+<h1 class="h1" style="font-family: 'Grand Hotel', cursive; color:#DD2A7B;font-size:3.5vw; margin-left: 45vw;margin-top: -1vh;">Instagram</h1>
+<div class="container">
 
-
-    <h1 class="h1" style="font-family: 'Grand Hotel', cursive; color:#DD2A7B;font-size:3.5vw; margin-left: 45vw;margin-top: -1vh;">Instagram</h1>
+    
  
-      <img id="bi-instagram" class="img-fluid" alt="Responsive image"src="https://img.icons8.com/glyph-neue/50/000000/instagram-new.png"/>
+      <!-- <img id="bi-instagram" class="img-fluid" alt="Responsive image"src="https://img.icons8.com/glyph-neue/50/000000/instagram-new.png"/> -->
 
+      {% for pic in photo %}
 
+      <img src="{{pic.image.url}}" alt="" class="img-responsive" height="300px" width="300px">
+      <h5>{{pic.name}}</h5>
+      <p><b>{{pic.date}}</b></p>
+      {% endfor %}
+</div>
 {% endblock %}
