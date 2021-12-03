@@ -4,18 +4,12 @@ from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
-
-
-
 class Images(models.Model):
     image = CloudinaryField('image')
     name = models.CharField(max_length=250, blank=True)
     caption = models.CharField(max_length=250, blank=True)
     date = models.DateTimeField(auto_now_add=True, null=True)
    
-    
-    
-
     def save_images(self):
         self.save()
 
