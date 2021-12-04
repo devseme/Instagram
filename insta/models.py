@@ -5,20 +5,34 @@ from cloudinary.models import CloudinaryField
 # Create your models here.
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    bio = models.TextField(max_length=500, blank=True, default='No bio')
-    profile = models.ImageField(upload_to='images/', default='default.jpeg')
-    
+    profile_photo = CloudinaryField('image')
+    bio = models.TextField(max_length=500, blank=True, null=True)
+    contact = models.CharField(max_length=50, blank=True, null=True)
+
+    def update(self):
+        self.save()
+
     def save_profile(self):
         self.save()
 
+    def delete_profile(self):
+        self.delete()
+
+    @classmethod
+    def get_profile_by_user(cls, user):
+        profile = cls.objects.filter(user=user)
+        return profile
+
+    def _str_(self):
+        return self.user.username
 
 class Images(models.Model):
     image = CloudinaryField('image')
     name = models.CharField(max_length=250, blank=True)
     caption = models.CharField(max_length=250, blank=True)
     date = models.DateTimeField(auto_now_add=True, null=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
-    
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts', null=True)
+
     def save_images(self):
         self.save()
 
