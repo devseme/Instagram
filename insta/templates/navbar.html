@@ -1,8 +1,35 @@
-<nav class="navbar navbar-expand-lg navbar-light " style="background-color:#8134AF;">
+
+<style>
+  .flex-container{
+    
+    float: right;
+    display: flex;
+    flex-direction: row;
+    margin-right:10vw;
+  }
+  .flex-container div img{
+    height: 20px;
+    width: 20px;
+  }
+  .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-light " style="background-color:#C4402A;">
     <img src="https://img.icons8.com/fluency/48/000000/instagram-new.png" />
     <a class="navbar-brand" href="#" id="ig-text">Instagram</a>
     <a style="color:black;" href="/admin" id="ig-text" class="nav-item text-black" active-color="black"><i
-            class="fas fa-user-tie text-white"></i>&nbsp; &nbsp;Admin</a>&nbsp; &nbsp;
+            class="fas fa-user-tie text-black"></i>&nbsp;</a>&nbsp; 
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,45 +40,73 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
 
-                <a class="nav-link active text-black" id="ig-text" aria-current="page" href="/"><i
-                        class="fa fa-home fa-fw text-white" aria-hidden="true"></i>&nbsp;Home</a>
+              <a class="nav-link active text-black" id="ig-text" aria-current="page" href="/"><i
+                        class="fa fa-home fa-fw text-black" aria-hidden="true"></i></a>
             </li>
+           
             <li class="nav-item">
+          
+              <a class="nav-link active text-white" aria-current="page" id="ig-text" href="/profile/">
+                <img src="https://img.icons8.com/ios-filled/50/000000/user.png"/></a>
+              
             </li>
-            <li class="nav-item">
-              <a class="nav-link active text-white" aria-current="page" href="/profile/">Profile</a>
-            </li>
+
+            <!-- <li class="nav-item">
+              <form class="form-inline my-2 my-lg-0" id="my-form" style="margin-left:0vw;">
+        
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <i class="fa fa-search"></i>
+            </form>
+            </li> -->
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <i class="fa fa-search"></i>
-        </form>
+       
     </div>
-    <div class="col-sm-6 col-md-6">
-        {% if user.is_authenticated %}
-        <ul>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">Account
-                      <span class="caret"></span>
-                  </a>
-            <ul class="dropdown-menu" role="menu">
-              <li>
-                <a href="#">Home</a>
-              </li>
-              <li>
-                <a href="/accounts/password/change">Change Password</a>
-              </li>
-              <li>
-                <a href="/logout">Logout</a>
-              </li>
-            </ul>
+
+ 
+  <div class="col-sm-6 col-md-6">
+    {% if user.is_authenticated %}
+    <ul>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">Account
+                  <span class="caret"></span>
+              </a>
+        <ul class="dropdown-menu" role="menu">
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a href="/accounts/password/change">Change Password</a>
+          </li>
+          <li>
+            <a href="/logout">Logout</a>
           </li>
         </ul>
-        {% else %}
-        <li>
-          <a class='btn btn-default' href="/accounts/login">Login</a>
-        </li>
+      </li>
+    </ul>
+    {% else %}
+    <li>
+      <a class='btn btn-default' href="/accounts/login">Login</a>
+    </li>
 
         {% endif %}
       </div>
+      <!-- <div class="search-container">
+        <form action="/action_page.php">
+          <input type="text" placeholder="Search.." name="search">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div> -->
+      <div  class="flex-container" >
+       
+        <div><img src="https://img.icons8.com/ios-filled/50/000000/instagram-reel.png"/></div>  &nbsp; &nbsp;
+          <div><img src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/50/000000/external-igtv-instagram-flatart-icons-outline-flatarticons.png"/></div>
+         <div><img src="https://img.icons8.com/external-bearicons-gradient-bearicons/64/000000/external-Post-social-media-bearicons-gradient-bearicons.png"/></div> 
+         <div><img src="https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/64/000000/external-heart-miscellaneous-kiranshastry-lineal-kiranshastry.png"/></div> 
+        <div><img src="https://img.icons8.com/external-vitaliy-gorbachev-fill-vitaly-gorbachev/60/000000/external-paper-plane-social-media-vitaliy-gorbachev-fill-vitaly-gorbachev.png"/></div>  
+         
+        </ul>
+       
+      </div>
+    
+     
 </nav>

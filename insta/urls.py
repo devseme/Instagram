@@ -5,5 +5,5 @@ urlpatterns=[
     # url('^$',views.welcome,name = 'welcome'),
     path('',views.index,name= 'index'),
     path('profile/', views.profile, name='profile'),
-    
+    path('like/', views.like_image, name='like-image'),
 ]

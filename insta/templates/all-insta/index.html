@@ -13,6 +13,16 @@
       <img src="{{pic.image.url}}" alt="" class="img-responsive" height="300px" width="300px">
       <h5>{{pic.name}}</h5>
       <p><b>{{pic.date}}</b></p>
+      <form action = "{% url 'like-image' %}"   method='POST'>
+            {% csrf_token %}
+            <input type="hidden" name="image_id" value="{{pic.id}}">
+            {%if user not in pic.liked.all %}
+            <button class="btn btn-success" type="submit">like</button>
+            {% else %}
+            <button class="btn btn-danger" type="submit">Un-like</button>
+            {% endif %}
+      </form>
+      <strong>{{pic.liked.all.count}}Likes</strong>
       {% endfor %}
 </div>
 {% endblock %}

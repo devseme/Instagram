@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect, get_object_or_404
 from django.http  import HttpResponse,HttpResponseRedirect
-from .models import Images,Profile
+from .models import Images,Profile,Likes
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
@@ -23,7 +23,23 @@ def welcome(request):
 @login_required(login_url='/accounts/login/')
 def index(request):
     photo = Images.objects.all().order_by('-id')
+    user = request.user.id
 
-    return render(request, 'all-insta/index.html',{'photo':photo})
+    context ={
+        'photo':photo,
+        'user':user,
+    }
+    return render(request, 'all-insta/index.html',context)
 
- 
+def like_image(request):
+    user = request.user
+    if request.method == 'POST':
+        image_id = request.POST.get('image_id')
+        image_pic =Images.objects.get(id=image_id)
+        if user in image_pic.liked.all():
+            image_pic.liked.add(user)
+        else:
+            image_pic.liked.add(user)    
+            
+            
+    return redirect('images:index')
