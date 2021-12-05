@@ -4,6 +4,8 @@ from .models import Images,Profile,Likes
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
+from .forms import UserForm
+
 
 
 @login_required(login_url='/accounts/login/')
@@ -13,7 +15,17 @@ def profile(request):
     image = Images.objects.filter(user_id=current_user.id)
     # get the profile of the current logged in user
     profile = Profile.objects.filter(user_id=current_user.id).first()
-    return render(request, 'profile.html', {"image": image, "profile": profile})
+    form = UserForm()
+    if request.method == 'POST':
+        form = UserForm (request.POST , request.FILES)
+        if form.is_valid():
+            form.instance.user = request.user
+            form.save()
+        redirect('profile')
+
+        
+
+    return render(request, 'profile.html', {"image": image, "profile": profile,"form": form})
 
 
 # Create your views here.
@@ -41,5 +53,12 @@ def like_image(request):
         else:
             image_pic.liked.add(user)    
             
-            
-    return redirect('images:index')
+        like,created =Likes.objects.get_or_create(user=user, image_id=image_id)
+        if not created:
+            if like.value =='Like':
+               like.value = 'Unlike'
+        else:
+               like.value = 'Like'
+
+        like.save()       
+    return redirect('index')

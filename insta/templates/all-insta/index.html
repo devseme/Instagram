@@ -10,7 +10,7 @@
 
       {% for pic in photo %}
 
-      <img src="{{pic.image.url}}" alt="" class="img-responsive" height="300px" width="300px">
+      <img src="{{pic.image.url}}" alt="" class="img-responsive" height="400px" width="400px">
       <h5>{{pic.name}}</h5>
       <p><b>{{pic.date}}</b></p>
       <form action = "{% url 'like-image' %}"   method='POST'>
@@ -19,10 +19,10 @@
             {%if user not in pic.liked.all %}
             <button class="btn btn-success" type="submit">like</button>
             {% else %}
-            <button class="btn btn-danger" type="submit">Un-like</button>
+            <button class="" type="submit">Un-like</button>
             {% endif %}
       </form>
-      <strong>{{pic.liked.all.count}}Likes</strong>
+      <strong>{{pic.liked.all.count}}Like(s)</strong>
       {% endfor %}
 </div>
 {% endblock %}
