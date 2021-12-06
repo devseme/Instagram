@@ -1,4 +1,4 @@
-
+<!-- 
 <style>
   .flex-container{
     
@@ -53,11 +53,7 @@
             </li>
 
             <li class="nav-item">
-              <form class="form-inline my-2 my-lg-0" id="my-form" style="margin-left:0vw;"action="{% url 'search.post' %}">
-        
-                <input class="form-control mr-sm-2" type="search" placeholder="Search by photo name" aria-label="Search">
-                <i class="fa fa-search"></i>
-            </form>
+            
             </li>
         </ul>
        
@@ -73,7 +69,7 @@
               </a>
         <ul class="dropdown-menu" role="menu">
           <li>
-            <a href="#">Home</a>
+            <a href="/">Home</a>
           </li>
           <li>
             <a href="/accounts/password/change">Change Password</a>
@@ -91,12 +87,13 @@
 
         {% endif %}
       </div>
-      <!-- <div class="search-container">
-        <form action="/action_page.php">
-          <input type="text" placeholder="Search.." name="search">
-          <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
-      </div> -->
+     
+
+     <div><form class="form-inline my-2 my-lg-0" id="my-form" style="margin-left:0vw;"action="{% url 'search.post' %}">
+        
+      <input class="form-control mr-sm-2" type="search" placeholder="Search by photo name" aria-label="Search">
+      <i class="fa fa-search"></i>
+  </form></div> 
       <div  class="flex-container" >
        
         <div><img src="https://img.icons8.com/ios-filled/50/000000/instagram-reel.png"/></div>  &nbsp; &nbsp;
@@ -110,4 +107,88 @@
       </div>
     
      
+</nav> -->
+<style>
+  .flex-container{
+    
+    float: right;
+    display: flex;
+    flex-direction: row;
+    
+    justify-content: space-between;
+  }
+  .flex-container div img{
+    height: 20px;
+    width: 20px;
+  }
+  .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+
+</style>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <img src="https://img.icons8.com/fluency/48/000000/instagram-new.png" />
+  <a class="navbar-brand"id="ig-text" href="#">Instagram</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/"><img src="https://img.icons8.com/ios-glyphs/30/000000/home-page--v1.png"/><span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+          
+        <a class="nav-link active text-white" aria-current="page" id="profile" href="/profile/" height="20px" width="20px">
+          <img src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png"/></a>
+        
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Account
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/">Home</a>
+          <a class="dropdown-item" href="/accounts/password/change">Change Password</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item"  href="/logout">Logout</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class='btn btn-default'   href="/accounts/login">Log Out</a>
+      </li>
+    </ul>
+    <div class="forms">
+      <form class=" form" role="search" action="{% url 'search.post' %}">
+        <div class="input-group " >
+          <input type="text" class="form-control" placeholder="Search photos" name="search" style="height: 45px; width: 200px;" >
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit"></button>
+          </div>
+        </div>
+      </form>
+      
+    </div>
+  <div  class="flex-container" >
+       
+    <div><img src="https://img.icons8.com/ios-filled/50/000000/instagram-reel.png"/></div>  &nbsp; &nbsp;
+      <div><img src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/50/000000/external-igtv-instagram-flatart-icons-outline-flatarticons.png"/></div>
+     <div><img src="https://img.icons8.com/external-bearicons-gradient-bearicons/64/000000/external-Post-social-media-bearicons-gradient-bearicons.png"/></div> 
+     <div><img src="https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/64/000000/external-heart-miscellaneous-kiranshastry-lineal-kiranshastry.png"/></div> 
+    <div><img src="https://img.icons8.com/external-vitaliy-gorbachev-fill-vitaly-gorbachev/60/000000/external-paper-plane-social-media-vitaliy-gorbachev-fill-vitaly-gorbachev.png"/></div>  
+     
+    </ul>
+   
+  </div>
+    
+  </div>
 </nav>
