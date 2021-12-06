@@ -18,10 +18,24 @@ class Profile(models.Model):
     def delete_profile(self):
         self.delete()
 
-    @classmethod
-    def get_profile_by_user(cls, user):
-        profile = cls.objects.filter(user=user)
-        return profile
+    # @classmethod
+    # def get_profile_by_user(cls, user):
+    #     profile = cls.objects.filter(user=user)
+    #     return profile
+   
+
+    def save_profile(self):
+        self.save() 
+
+    def delete_profile(self):
+        self.delete()
+
+    
+
+    def update_image(self, user_id, new_image):
+        user = User.objects.get(id = user_id)
+        self.photo = new_image 
+        self.save()
 
     def _str_(self):
         return self.user.username
@@ -41,22 +55,20 @@ class Images(models.Model):
 
     def save_images(self):
         self.save()
-
+    
      
     def delete_images(self):
         self.delete()
-     # update photos
-    # def update_images(self, name, def update_images(self, name, description,category,location):
-    #     self.name = name
-    #     self.description = description
-    #     self.category = category
-    #     self.location =location
-    #     self.save()description,category,location):
-    #     self.name = name
-    #     self.description = description
-    #     self.category = category
-    #     self.location =location
-    #     self.save()
+
+    @classmethod
+  # search images using image name
+    def search_image_name(cls, search_term):
+        images = cls.objects.filter(
+        name__icontains=search_term)
+        return images    
+
+    def _str_(self):
+        return self.user.username       
 
     def _str_(self):
         return self.name
@@ -86,7 +98,7 @@ class Likes(models.Model):
     value = models.CharField(choices=LIKE_CHOICES,default='like',max_length=10)
 
     def __str__(self):
-        return self.user
+        return self.value
 
           
         

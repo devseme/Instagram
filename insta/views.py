@@ -62,3 +62,16 @@ def like_image(request):
 
         like.save()       
     return redirect('index')
+
+
+@login_required(login_url='/accounts/login/')
+def search_post(request):
+    if 'search' in request.GET and request.GET['search']:
+        search_term = request.GET.get('search').lower()
+        images = Images.search_image_name(search_term)
+        message = f'{search_term}'
+
+        return render(request, 'all-insta/search.html', {'found': message, 'images': images})
+    else:
+        message = 'Not found'
+        return render(request, 'all-insta/search.html', {'danger': message})

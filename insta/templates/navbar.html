@@ -6,6 +6,7 @@
     display: flex;
     flex-direction: row;
     margin-right:10vw;
+    justify-content: space-around;
   }
   .flex-container div img{
     height: 20px;
@@ -25,7 +26,7 @@
 
 </style>
 
-<nav class="navbar navbar-expand-lg navbar-light " style="background-color:#C4402A;">
+<nav class="navbar navbar-expand-lg navbar-light " style="background-color:#8134AF;">
     <img src="https://img.icons8.com/fluency/48/000000/instagram-new.png" />
     <a class="navbar-brand" href="#" id="ig-text">Instagram</a>
     <a style="color:black;" href="/admin" id="ig-text" class="nav-item text-black" active-color="black"><i
@@ -51,13 +52,13 @@
               
             </li>
 
-            <!-- <li class="nav-item">
-              <form class="form-inline my-2 my-lg-0" id="my-form" style="margin-left:0vw;">
+            <li class="nav-item">
+              <form class="form-inline my-2 my-lg-0" id="my-form" style="margin-left:0vw;"action="{% url 'search.post' %}">
         
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search by photo name" aria-label="Search">
                 <i class="fa fa-search"></i>
             </form>
-            </li> -->
+            </li>
         </ul>
        
     </div>
