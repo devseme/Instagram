@@ -5,7 +5,7 @@
 # Description 
 This is the famous instagram clone app that enables users to see the different pictures posted by other users. You can view, like, follow and unfollow other users.
 ##  Live Link 
- https://photosmegas.herokuapp.com/
+ 
 
 ## User Story 
 * View different photos from the galllery
