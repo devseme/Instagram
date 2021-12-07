@@ -13,12 +13,12 @@
     }
 
     .card:hover {
-        box-shadow: 0 0 11px 5px rgba(70, 41, 121, 0.25);
-        background: linear-gradient(-19deg, rgba(235, 174, 8, 0.95) 0px);
+        box-shadow: 0 0 11px 5px rgba(129,52,175);
+        background: linear-gradient(-19deg, rgba(245,133,41) 0px);
     }
 
     .profile .card-img-top {
-        border-radius: 50% !important;
+        border-radius: 45% !important;
     }
 </style>
 <section class="profile container">
@@ -84,9 +84,20 @@
           </div>
         </div>
 </section>
-<h3>POSTS</h3>
+<style>
+#post-image{
+    float: right;
+    
+}
+.post-title{
+    margin-left: 30vw;
+    color:#8134AF !important;
+}
+</style>
+<div class="container" id="">
+<h3 class="post-title" id="ig-text">MY &nbsp; POSTED &nbsp;PICS:</h3>
     {% for image in image %}
-    <div class="col-md-4">
+    <div class="col-md-4" id="post-image">
         
             <div class="card mb-4">
                 <img src="{{ image.image.url }}" class="img-responsive" alt="Image">
@@ -99,5 +110,6 @@
             No posts!
         </div>
     </div>
+</div>
     {% endfor %}
 {% endblock %}
