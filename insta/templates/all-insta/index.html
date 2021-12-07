@@ -44,7 +44,7 @@ border: 3px solid rgb(221,42,123);
         <div class="card" style="width: 30rem;">
           
           <div class = "" data-toggle ="modal" data-target="#showPicModal">
-            <img class="card-img-top" height="550px"src="{{pic.image.url}}" alt="{{pic.name}}">
+            <img class="card-img-top" height="550px"src="{{pic.image.url}}" alt="{{pic.name}}"><br>
         </div>
           <div class="card-body">
             <p class="card-text">
@@ -104,7 +104,7 @@ border: 3px solid rgb(221,42,123);
         <p>{{ user.username }}</p>
         <div class="row">
           <form action="/profile/" method="post">
-              <button class="btn btn-info  btn-md" type="submit" a href="/profile/"style=" background :#515BD4"value="add post" >Add Post</button>
+              <a href="/profile/" class="" type="submit" style="color:white;background-color:#515BD4"value="add post" >Add Post</a>
           </form>
         </div>
       </div>
@@ -132,6 +132,10 @@ border: 3px solid rgb(221,42,123);
         </div>
       </div>
     </div>
+    {% for user in users %}
+    {{user.user.username}}
+    <img src="{{user.profile_photo.url}}" alt="" height="100" width="100" style="border-radius: 50%;" >
+    {% endfor %}
 </div>
 {% endblock %}
 

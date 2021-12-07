@@ -36,6 +36,7 @@ def welcome(request):
 def index(request):
     photo = Images.objects.all().order_by('-id')
     user = request.user.id
+    users =Profile.objects.all()
     if request.method == 'POST':  
         form = CommentForm(request.POST, request.FILES)
         if form.is_valid():
@@ -51,6 +52,7 @@ def index(request):
         'photo':photo,
         'user':user,
         'form':form,
+        'users':users,
     }
     return render(request, 'all-insta/index.html',context)
 
@@ -99,4 +101,10 @@ def comments(request,image_id):
       comment.image = image
       comment.save() 
   return redirect('index')
+
+def user_profile(request,user_id):
+    user_profile = Profile.objects.filter(user_id = user_id).first()
+    photos = Images.objects.filter(user_id = user_id)
+
+    return render(request, 'insta_profile.html', {'insta_profile':user_profile, 'photos':photos})  
 
