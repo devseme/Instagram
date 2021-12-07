@@ -3,7 +3,7 @@
 ## Author 
 [Ian Seme](https://github.com/devseme)
 # Description 
-This is the famous insttagram clone app that enables users to see the different pictures posted by other users. You can view, like, follow and unfollow other users.
+This is the famous instagram clone app that enables users to see the different pictures posted by other users. You can view, like, follow and unfollow other users.
 ##  Live Link 
  https://photosmegas.herokuapp.com/
 
