@@ -7,5 +7,5 @@ urlpatterns=[
     path('profile/', views.profile, name='profile'),
     path('like/', views.like_image, name='like-image'),
     path('search/', views.search_post, name='search.post'),
-    path('comment/', views.post_detail, name='post_detail')
+    path('comments/<image_id>', views.comments,name='comments'),
 ]

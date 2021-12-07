@@ -36,10 +36,21 @@ def welcome(request):
 def index(request):
     photo = Images.objects.all().order_by('-id')
     user = request.user.id
+    if request.method == 'POST':  
+        form = CommentForm(request.POST, request.FILES)
+        if form.is_valid():
+            com = form.save(commit=False)
+            com.user = request.user
+            com.save()
+            return redirect('index')
+    
+    else:
+        form = CommentForm()
 
     context ={
         'photo':photo,
         'user':user,
+        'form':form,
     }
     return render(request, 'all-insta/index.html',context)
 
@@ -76,26 +87,16 @@ def search_post(request):
         message = 'Not found'
         return render(request, 'all-insta/search.html', {'danger': message})
 
-def post_detail(request, slug):
-    template_name = 'post_detail.html'
-    images = get_object_or_404(Images, slug=slug)
-    comments = images.comments.filter(active=True)
-    new_comment = None
-    # Comment posted
-    if request.method == 'POST':
-        comment_form = CommentForm(data=request.POST)
-        if comment_form.is_valid():
+@login_required
+def comments(request,image_id):
+  form = CommentForm()
+  image = Images.objects.filter(pk = image_id).first()
+  if request.method == 'POST':
+    form = CommentForm(request.POST)
+    if form.is_valid():
+      comment = form.save(commit = False)
+      comment.user = request.user
+      comment.image = image
+      comment.save() 
+  return redirect('index')
 
-            # Create Comment object but don't save to database yet
-            new_comment = comment_form.save(commit=False)
-            # Assign the current post to the comment
-            new_comment.images = images
-            # Save the comment to the database
-            new_comment.save()
-    else:
-        comment_form = CommentForm()
-
-    return render(request, template_name, {'images': images,
-                                           'comments': comments,
-                                           'new_comment': new_comment,
-                                           'comment_form': comment_form})        
