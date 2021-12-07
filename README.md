@@ -59,7 +59,7 @@ Open the application on your browser `127.0.0.1:8000`.
 ## Known Bugs 
 * There are no known bugs
 ## Support and Contact Information
-To make a contribution to the code used or for any queries feel free to contact me via my email addresses ezekiel.nyambane@student.moringaschool.com or kibiezekiel@gmail.com
+To make a contribution to the code used or for any queries feel free to contact me via my email addresses ian.ochenge@student.moringaschool.com or semeochenge@gmail.com or @devseme
 ## License
 ### MIT LICENCE
 #### Copyright (c) 2021 **Ian ochenge** ~ Moringa School
