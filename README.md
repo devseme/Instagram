@@ -15,7 +15,15 @@ This is the famous Instagram clone app that enables users to see the different p
 * Search for images by image name.
 * Copy a link to the photo.
 * Like a picture and leave a comment on it.
-* Follow other users and see their pictures on my timeline..
+* Follow other users and see their pictures on my timeline.
+
+## Technologies Used
+
+- HTML 
+- CSS 
+- Bootstrap
+- Python
+- Heroku
 
 
 ## Setup and Installation 
@@ -66,7 +74,6 @@ Open the application on your browser `127.0.0.1:8000`.
 ## Support and Contact Information
 To make a contribution to the code used or for any queries feel free to contact me via my email addresses ian.ochenge@student.moringaschool.com or semeochenge@gmail.com or @devseme
 ## License
-### MIT LICENCE
 Copyright (c) 2021 Ian Seme
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
