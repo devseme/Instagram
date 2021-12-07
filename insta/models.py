@@ -12,17 +12,10 @@ class Profile(models.Model):
     def update(self):
         self.save()
 
-    def save_profile(self):
-        self.save()
-
     def delete_profile(self):
         self.delete()
 
-    # @classmethod
-    # def get_profile_by_user(cls, user):
-    #     profile = cls.objects.filter(user=user)
-    #     return profile
-   
+
 
     def save_profile(self):
         self.save() 
