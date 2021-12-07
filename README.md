@@ -3,16 +3,21 @@
 ## Author 
 [Ian Seme](https://github.com/devseme)
 # Description 
-This is the famous instagram clone app that enables users to see the different pictures posted by other users. You can view, like, follow and unfollow other users.
+This is the famous Instagram clone app that enables users to see the different pictures posted by other users. Here,they can view, like, follow and unfollow other users.They can also view user stories.
 ##  Live Link 
  
 
 ## User Story 
-* View different photos from the galllery
+* Sign in to the application to start using.
+* Upload my pictures to the application.
+* See my profile with all my pictures.
 * Click a single image to expand it and view the details of that photo
-* Search for images by different categories.
+* Search for images by image name.
 * Copy a link to the photo.
-* Filter photos based on the location.
+* Like a picture and leave a comment on it.
+* Follow other users and see their pictures on my timeline..
+
+
 ## Setup and Installation 
 ##### Clone the repository: 
  ```bash
@@ -33,7 +38,7 @@ cd Instagram, pip install -r requirements.txt
 ##### Setup Database 
   SetUp your database User,Password, Host then make migrate
  ```bash
-python manage.py makemigrations photos
+python manage.py makemigrations insta
  ```
  Now Migrate
  ```bash
