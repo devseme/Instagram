@@ -1,37 +1,97 @@
+
 {%extends 'all-insta/base.html'%}
 {% block content %}
 {{block.super}}
-<h1 class="h1" style="font-family: 'Grand Hotel', cursive; color:#DD2A7B;font-size:3.5vw; margin-left: 45vw;margin-top: -1vh;">Instagram</h1>
-<div class="container">
-
-    
- 
-      <!-- <img id="bi-instagram" class="img-fluid" alt="Responsive image"src="https://img.icons8.com/glyph-neue/50/000000/instagram-new.png"/> -->
-
-      {% for pic in photo %}
-
-      <img src="{{pic.image.url}}" alt="" class="img-responsive" height="400px" width="400px">
-      <h5>{{pic.name}}</h5>
-      <p><b>{{pic.date}}</b></p>
-      <form action = "{% url 'like-image' %}"   method='POST'>
-            {% csrf_token %}
-            <input type="hidden" name="image_id" value="{{pic.id}}">
-            {%if user not in pic.liked.all %}
-            <button class="btn btn-success" type="submit">like</button>
-            {% else %}
-            <button class="" type="submit">Un-like</button>
-            {% endif %}
-      </form>
-      <strong>{{pic.liked.all.count}}Like(s</strong>
-      {% endfor %}
-
-      {% load crispy_forms_tags %}
-...
-<form method="post" style="margin-top: 1.3em;">
-          {{ comment_form | crispy }}
-          {% csrf_token %}
-          <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
- </form>
+<br>
+<div class="container-fluid">
+  <div class="row">
+    <div class="insta">
+      <div class="row img-steiraz">
+        <div class="col-md-2">
+            <img src="https://careerfodder.com/wp-content/uploads/2021/01/Azziad-Nasenya-6-819x1024.jpg" height="100px"width="95px"class="steiraz">
+        </div>
+        <div class="col-md-2">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkhbVGORbY8TeNdgUuBsDeIneW7ZShRM4esA&usqp=CAU" height="100px" width="95px"class="steiraz">
+      </div>
+      <div class="col-md-2">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuxnha6TWCtclFpSSAexuE0VsGPzBrJe0kNA&usqp=CAU" height="100px"width="95px"class="steiraz">
+    </div>
+    <div class="col-md-2">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMu7aKFLs4upGFS_yhGnohIrkCgbQmT9UgYA&usqp=CAU" height="100px"width="95px"class="steiraz">
+    </div>
+    <div class="col-md-2">
+      <img src="https://media.self.com/photos/59a7417ed0a3e87c2f5010ae/3:4/w_631,h_842,c_limit/Yara-Shahidi-Activism.jpg" height="100px"width="95px"class="steiraz">
+    </div>
+    <div class="col-md-2">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1_9_WirMcZuHqLSJmOlr6fVO_xOItPKxvVA&usqp=CAU" height="100px"width="95px"class="steiraz"><br><br>
+    </div>
+      </div>
+      <div class="col-md-6">
+            {% for pic in photo %}
+        <div class="card" style="width: 30rem;">
+          <img class="card-img-top" height="550px"src="{{pic.image.url}}" alt="{{pic.name}}">
+          <div class="card-body">
+            <p class="card-text">
+                  <form action = "{% url 'like-image' %}"   method='POST'>
+                        {% csrf_token %}
+                        <input type="hidden" name="image_id" value="{{pic.id}}">
+                        {%if user not in pic.liked.all %}
+                        <button class="btn btn-success" type="submit">like</button>
+                        {% else %}
+                        <button class="" type="submit">Un-like</button>
+                        {% endif %}
+                  </form>
+                 
+            </p>
+            <strong>{{pic.liked.all.count}}Like(s</strong>
+            <p class="card-text"><i class="fas fa-comment fa-2x"></i></p>
+            <h5 class="card-title">{{username}}</h5>
+            <p class="card-text">{{pic.caption}}</p>
+            {% for comment in comments %}
+                  {% if comment.image.id == image.id %}
+                  <div>
+                      <a href="#" class="likes"><em style="font-size: 1.2rem;">{{comment.user}}</em></a>
+                        <span class="post-link"><em style="font-size: 1.2rem;">{{comment.brief}}</em></span>
+                  </div>
+                  {% endif %}
+            {% endfor %}
+            <p class="card-text">Posted{{pic.date}} |timesince }} ago</p>
+          </div>
+          <div class="card-footer" style="padding: 0;">
+            <form role="add_comment" , action="">
+                {% csrf_token%}
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Add a comment" name="comment"
+                        style="font-size: 1.2rem; border: 0;">
+                    <div class="input-group-btn">
+                        <button class="btn" type="submit" style="font-size: 1.2rem;">Comment</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        </div>
+        {% endfor%}
+      </div><hr>
+    </div>
+    <div class="col-md-6">
+      <div class="side">
+        <div class="d-flex align-img-right">
+          {% if profile.profile_photo %}
+          <img src="{{user.profile_photo.url}}" alt="" class="card-img-top">
+          {%else%}
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3aV6aq2LNho3SY8cDICGVEdRweW5u9IaZ_w&usqp=CAU" alt="My profile picture">
+          {% endif %}
+        </div>
+        <p>{{ user.username }}</p>
+        <div class="row">
+          <form action="/upload/pic/">
+              <input type="submit" style=" background :linear-gradient(to left,#FD1D1D,#FCB045)"value="Post a picture" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}
+
 
