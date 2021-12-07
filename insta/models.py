@@ -15,15 +15,11 @@ class Profile(models.Model):
     def delete_profile(self):
         self.delete()
 
-
-
     def save_profile(self):
         self.save() 
 
     def delete_profile(self):
         self.delete()
-
-    
 
     def update_image(self, user_id, new_image):
         user = User.objects.get(id = user_id)

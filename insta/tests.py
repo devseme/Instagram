@@ -34,4 +34,5 @@ class ProfileTestCase(TestCase):
 
     def test_bio(self):
         profile = Profile.objects.get(bio='test bio')
-        self.assertEqual(profile.bio, 'test bio')        
+        self.assertEqual(profile.bio, 'test bio') 
+                  
