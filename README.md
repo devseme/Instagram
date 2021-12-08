@@ -5,7 +5,7 @@
 # Description 
 This is the famous Instagram clone app that enables users to see the different pictures posted by other users. Here,they can view, like, follow and unfollow other users.They can also view user stories.
 ##  Live Link 
- 
+ https://instazora.herokuapp.com/
 
 ## User Story 
 * Sign in to the application to start using.
@@ -65,6 +65,14 @@ python manage.py makemigrations insta
  python manage.py test
 ```
 Open the application on your browser `127.0.0.1:8000`.
+
+###Admin- Moringa
+###Password-0725014883ian
+
+
+
+
+
 ## Technology used 
 * [Python3.8](https://www.python.org/)
 * [Django==3.2.7](https://docs.djangoproject.com/en/2.2/)
