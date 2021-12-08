@@ -66,8 +66,9 @@ python manage.py makemigrations insta
 ```
 Open the application on your browser `127.0.0.1:8000`.
 
-###Admin- Moringa
-###Password-0725014883ian
+####  Admin- seme12345
+
+#### Password-moringa123
 
 
 
